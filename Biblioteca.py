@@ -24,8 +24,10 @@ menu = """
 4.-eliminar un libro
 5.-mostrar prestados
 99.-salir"""
-books = []
-with open("./libros.txt","r+") as f:
+
+books = []#list of the books imported from file
+
+with open("./libros.txt","r+") as f:#importing the books from file txt
     bs = f.readlines()
     for e in bs:
         books.append(e.strip())
