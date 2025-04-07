@@ -1,12 +1,13 @@
 #it's does make library as object for make more in one instance
-class library:
+class Library:
     def __init__(self,name,books):
         self.books = books
         self.name = name
         self.lends_books = {}
     
     def show_books(self): #do show a view of the names books
-        pass
+        for e in self.books:
+            print(f"{self.books.index(e)}.- {e}")
     def lend_book(self):
         pass
     def add_book(self):
@@ -15,7 +16,7 @@ class library:
         pass
     def show_lend(self):
         pass
-
+    
 menu = """
 1.-ver libros
 2.-prestar un libro
@@ -23,16 +24,23 @@ menu = """
 4.-eliminar un libro
 5.-mostrar prestados
 99.-salir"""
+books = []
+with open("./libros.txt","r+") as f:
+    bs = f.readlines()
+    for e in bs:
+        books.append(e.strip())
+
+Darien = Library("Darien",books)
 
 counter = True #a system is made for show a menu
 while counter:
     try:
-        decition = int(input(f"hola escoje una opcion: \n{menu}\n>>>").strip())
+        decition = int(input(f"\n hola escoje una opcion: \n{menu}\n>>>").strip())
     except:
         print("\n escribe solo numeros \n")
         break
     if decition == 1:
-        pass
+        Darien.show_books()
     elif decition == 2:
         pass
     elif decition == 3:
