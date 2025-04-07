@@ -8,8 +8,17 @@ class Library:
     def show_books(self): #do show a view of the names books
         for e in self.books:
             print(f"{self.books.index(e)}.- {e}")
+            
     def lend_book(self):
-        pass
+        try:
+            lend_usr = int(input("""
+                escribe el numero del libro que es el que quieres:
+                >>>
+                """))
+        except:
+            return print("escribe solo numeros porfa nmms")
+        if len(self.books) < lend_usr:
+            return print("sobrepasa nmms")
     def add_book(self):
         pass
     def delete_book(self):
